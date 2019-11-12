@@ -6,10 +6,16 @@
 ### Run command ###
 need super user
 ```
+[root]#
+```
+```
 rpm -Uhv /opt/packages/mysql/*.rpm
 ```
 ### Edit MySQL Configuration files ###
 need super user
+```
+[root]#
+```
 ```
 vi /etc/my.cnf
 ```
@@ -23,15 +29,24 @@ default_authentication_plugin=mysql_native_password
 ### Restart Service MySQL ###
 need super user
 ```
+[root]#
+```
+```
 service mysqld start
 systemctl enable mysqld
 ```
 ## First login
 Note: A temporary password store in /var/log/mysqld.log 
 ```
+[opc]$
+```
+```
 mysql -p`grep "temporary password" /var/log/mysqld.log | awk '{ print $NF }'`
 ```
 ## Show Database;
+```
+mysql>
+```
 ```
 show databases;
 ```
@@ -41,12 +56,18 @@ What happens?
 ## Change password to Null
 Only in lab/test/dev Do not use on production
 ```
+mysql>
+```
+```
 alter user root@'localhost' identified with mysql_native_password by '';
 ```
 Note: It can't change. Why?  
 
 ## Change password to Null
 Change Password --> view mysql component --> remove component_validate_password'; 
+```
+mysql>
+```
 ```
 alter user root@'localhost' identified by 'MySQL8.0';
 SELECT * FROM mysql.component;
@@ -56,6 +77,9 @@ create user root@'%' identified with mysql_native_password by ''; grant all priv
 flush privileges;
 ```
 ## Show Database;
+```
+mysql>
+```
 ```
 show databases;
 ```

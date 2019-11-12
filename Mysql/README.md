@@ -4,4 +4,6 @@
 ### Journey Lab ###
 |  | |
 | ------------- | ------------- |
-| [Lab1](lab1) | MySQL Installation first login  |
+| [Setup Preparation](Started) | MySQL Installation first login  
+| [Lab1](lab1) | MySQL Installation and first login  
+| [Lab2](lab2) | MySQL Introduction MySQL 

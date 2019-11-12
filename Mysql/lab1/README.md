@@ -1,7 +1,9 @@
 # MySQL Enterprise Edition Lab1 
 
-
+### Before going on.... ###
+  Take a snapshot!
 ### Mysql Installation ###
-|  | |
-| ------------- | ------------- |
-| [Lab1](lab1) | Installation |
+run command
+```
+rpm -Uhv /opt/packages/mysql/*.rpm
+```

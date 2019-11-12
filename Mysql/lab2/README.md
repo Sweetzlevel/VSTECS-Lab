@@ -1,5 +1,5 @@
 # MySQL Enterprise Edition Lab2
-#Introduction MySQL 
+# Introduction MySQL 
 ## MySQL Innovation: 5.7 --> 8.0 
 ![](img/01.PNG) 
 ## MySQL History 
@@ -47,12 +47,12 @@ mysql>
 ```
 shutdown;
 ```
-###Started with mysqld
+### Started with mysqld
 ```
 sudo -u mysql /lab/mysql/bin/mysqld --defaults-file=/lab/mysql_home01/my.cfg 2>&1 &>/dev/null &
 ```
 
-###Started with mysqld_safe
+### Started with mysqld_safe
 ```
 sudo -u mysql /lab/mysql/bin/mysqld_safe --defaults-file=/lab/mysql_home01/my.cfg 2>&1 &>/dev/null &
 ```

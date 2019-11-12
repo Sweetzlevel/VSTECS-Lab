@@ -43,6 +43,27 @@ sudo -u mysql /lab/mysql/bin/mysqld --defaults-file=/lab/mysql_home01/my.cfg 2>&
 ```
 mysql -u root -h 127.0.0.1 -P3310
 ```
+## Storage Engines
+### InnoDB
+```
+show engines;
+show status like '%Innodb%';
+show engine innodb status\G
+```
+### Performance_schema
+```
+use performance_schema
+show tables;
+select * from events_statements_summary_by_digest order by COUNT_STAR desc limit 2\G
+
+use sys
+show tables;
+select * from statement_analysis order by exec_count desc limit 2\G
+
+\! mysqlslap --concurrency=5 --iterations=20 --number-int-cols=2 --number-char-cols=3 --auto-generate-sql
+
+select * from statement_analysis order by exec_count desc limit 2\G
+```
 mysql>
 ```
 shutdown;
@@ -80,25 +101,23 @@ show variables like 'general_log%';
 set persist general_log = true;
 restart;
 ```
-
-## Storage Engines
-### InnoDB
+### Test kill process MySQL Server
 ```
-show engines;
-show status like '%Innodb%';
-show engine innodb status\G
+more *.pid
 ```
-### Performance_schema
+See number 3698(Sample)
 ```
-use performance_schema
-show tables;
-select * from events_statements_summary_by_digest order by COUNT_STAR desc limit 2\G
-
-use sys
-show tables;
-select * from statement_analysis order by exec_count desc limit 2\G
-
-\! mysqlslap --concurrency=5 --iterations=20 --number-int-cols=2 --number-char-cols=3 --auto-generate-sql
-
-select * from statement_analysis order by exec_count desc limit 2\G
+kill -9 3698
+more *.pid
 ```
+It Change. Why 
+
+### Shutdown MySQL Server
+```
+mysql -u root -h 127.0.0.1 -P3310
+```
+mysql>
+```
+shutdown;
+```
+

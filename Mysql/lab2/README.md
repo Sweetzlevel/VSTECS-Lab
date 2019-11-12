@@ -9,6 +9,7 @@
 ## Create new MySQL Instance
 ```
 mkdir /lab
+chown mysql.mysql /lab
 sudo -H -u mysql bash -c '/usr/sbin/mysqld --initialize-insecure --basedir=/usr/sbin/ --datadir=/lab/mysql_home01'
 ``` 
 ## Create mysql configure files 
@@ -31,7 +32,17 @@ EOF
 
 
 ## MySQL Server 
+```
 sudo -u mysql mysqld --defaults-file=/lab/mysql_home01/my.cfg 2>&1 &>/dev/null &
+```
+### Connect to mysqlserver 
+```
+mysql -u root -h 127.0.0.1 -P3310
+
+```
+
+
+
 
 ###Started with mysqld
 

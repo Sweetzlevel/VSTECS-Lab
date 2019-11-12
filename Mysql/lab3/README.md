@@ -24,3 +24,6 @@ Uncomment this line
 
 ## Work
 ![](img/05.PNG)
+
+## Configure Mysql Enterprise Backup
+![](img/06.PNG)

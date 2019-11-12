@@ -44,9 +44,6 @@ What happens?
 ## Change password to Null
 Only in lab/test/dev Do not use on production
 ```
-mysql>
-```
-```
 alter user root@'localhost' identified with mysql_native_password by '';
 ```
 Note: It can't change. Why?  

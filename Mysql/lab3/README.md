@@ -16,8 +16,8 @@ Uncomment this line
 ![](img/01.PNG) 
 
 ## Add Connection 
-![](img/02.PNG)
+![](img/x02.PNG)
 
 ## Edit Connection 
-![](img/03.PNG)
-![](img/04.PNG)
+![](img/x03.PNG)
+![](img/x04.PNG)

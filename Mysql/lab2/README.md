@@ -1,8 +1,8 @@
 # MySQL Enterprise Edition Lab2
-# Introduction MySQL 
-## MySQL Innovation: 5.7 --> 8.0 
+ Introduction MySQL 
+
 ![](img/01.PNG) 
-## MySQL History 
+
 ![](img/02.PNG)
 
 # MySQLComponents

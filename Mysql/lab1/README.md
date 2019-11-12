@@ -1,13 +1,14 @@
 # MySQL Enterprise Edition Lab1 
 
 ### Before going on.... ###
-  Take a snapshot!
+  #Take a snapshot!#
 ### Mysql Installation ###
-#Run command(need super user)
+# Run command # need super user
 ```
 rpm -Uhv /opt/packages/mysql/*.rpm
 ```
-#edit(need super user)
+# Edit MySQL Configuration files
+need super user
 ```
 vi /etc/my.cnf
 ```

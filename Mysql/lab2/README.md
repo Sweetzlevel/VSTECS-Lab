@@ -9,6 +9,7 @@
 ## Create new MySQL Instance
 ```
 mkdir /lab
+chown mysql.mysql /lab
 sudo -H -u mysql bash -c '/usr/sbin/mysqld --initialize-insecure --basedir=/usr/sbin/ --datadir=/lab/mysql_home01'
 ``` 
 ## Create mysql configure files 

@@ -16,7 +16,7 @@ need super user
 ```
 [root]#
 ```
-```
+
 vi /etc/my.cnf
 ```
 #### Add this ####

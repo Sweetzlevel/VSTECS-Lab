@@ -37,8 +37,9 @@ alter user root@'localhost' identified with mysql_native_password by '';
 ```
 Note: It can't change. Why?  
 
-#Change password to Null 
-Change Password --> view mysql component --> remove component_validate_password'; (Only in lab/test/dev Do not use on production)
+# Change password to Null 
+Change Password --> view mysql component --> remove component_validate_password'; 
+Only in lab/test/dev Do not use on production
 ```
 alter user root@'localhost' identified by 'MySQL8.0';
 SELECT * FROM mysql.component;

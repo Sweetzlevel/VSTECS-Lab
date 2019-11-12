@@ -4,4 +4,4 @@
 ### Journey Lab ###
 |  | |
 | ------------- | ------------- |
-| [Lab1](lab1) | Installation |
+| [Lab1](lab1) | MySQL Installation first login  |

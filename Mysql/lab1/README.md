@@ -45,4 +45,5 @@ SELECT * FROM mysql.component;
 uninstall component 'file://component_validate_password';
 alter user root@'localhost' identified with mysql_native_password by '';
 create user root@'%' identified with mysql_native_password by ''; grant all privileges on *.* to root@'%' with grant option;
+flush privileges;
 ```

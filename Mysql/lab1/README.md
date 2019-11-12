@@ -31,12 +31,20 @@ Note: A temporary password store in /var/log/mysqld.log
 ```
 mysql -p`grep "temporary password" /var/log/mysqld.log | awk '{ print $NF }'`
 ```
+## Show Database;
+```
+show databases;
+```
+ERROR 1820 (HY000): You must reset your password using ALTER USER statement before executing this statement.
+What happens?
+
 ## Change password to Null
 Only in lab/test/dev Do not use on production
 ```
 alter user root@'localhost' identified with mysql_native_password by '';
 ```
 Note: It can't change. Why?  
+
 ## Change password to Null
 Change Password --> view mysql component --> remove component_validate_password'; 
 ```
@@ -47,3 +55,8 @@ alter user root@'localhost' identified with mysql_native_password by '';
 create user root@'%' identified with mysql_native_password by ''; grant all privileges on *.* to root@'%' with grant option;
 flush privileges;
 ```
+## Show Database;
+```
+show databases;
+```
+

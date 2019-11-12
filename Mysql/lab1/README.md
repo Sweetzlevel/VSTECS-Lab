@@ -1,7 +1,7 @@
-# VSTECS MySQL Enterprise Edition Lab
+# MySQL Enterprise Edition Lab1 
 
 
-### Journey Lab ###
+### Mysql Installation ###
 |  | |
 | ------------- | ------------- |
 | [Lab1](lab1) | Installation |

@@ -6,17 +6,11 @@
 ### Run command ###
 need super user
 ```
-[root]#
-```
-```
 rpm -Uhv /opt/packages/mysql/*.rpm
 ```
 ### Edit MySQL Configuration files ###
 need super user
 ```
-[root]#
-```
-
 vi /etc/my.cnf
 ```
 #### Add this ####
@@ -29,17 +23,11 @@ default_authentication_plugin=mysql_native_password
 ### Restart Service MySQL ###
 need super user
 ```
-[root]#
-```
-```
 service mysqld start
 systemctl enable mysqld
 ```
 ## First login
 Note: A temporary password store in /var/log/mysqld.log 
-```
-[opc]$
-```
 ```
 mysql -p`grep "temporary password" /var/log/mysqld.log | awk '{ print $NF }'`
 ```
@@ -66,9 +54,6 @@ Note: It can't change. Why?
 ## Change password to Null
 Change Password --> view mysql component --> remove component_validate_password'; 
 ```
-mysql>
-```
-```
 alter user root@'localhost' identified by 'MySQL8.0';
 SELECT * FROM mysql.component;
 uninstall component 'file://component_validate_password';
@@ -77,9 +62,6 @@ create user root@'%' identified with mysql_native_password by ''; grant all priv
 flush privileges;
 ```
 ## Show Database;
-```
-mysql>
-```
 ```
 show databases;
 ```

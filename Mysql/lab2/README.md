@@ -32,7 +32,17 @@ EOF
 
 
 ## MySQL Server 
+```
 sudo -u mysql mysqld --defaults-file=/lab/mysql_home01/my.cfg 2>&1 &>/dev/null &
+```
+### Connect to mysqlserver 
+```
+mysql -u root -h 127.0.0.1 -P3310
+
+```
+
+
+
 
 ###Started with mysqld
 

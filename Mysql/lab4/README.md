@@ -61,23 +61,7 @@ mkdir -p /lab/backup/log
 time mysqldump -uroot -h127.0.0.1 -P3310 --all-databases --set-gtid-purged=auto --triggers --routines --events --single-transaction > lab/backup/dump/mydump.sql
 
 ```
-### Backup data 
-```
-time mysqlbackup --port=3310 --host=127.0.0.1 --protocol=tcp --user=root --backup-dir=/lab/backup/full --with-timestamp --backup-image=image3310.img --compress backup-to-image > /lab/backup/log/mybackup.log 2>&1
-
-cat /lab/backup/log/mybackup.log
-```
-
-### View data dir 
-```
-mysql -uroot -h127.0.0.1 -P3310 -e "select @@datadir\G" |grep datadir|cut -f2 -d\  
-
-```
-### View image folder 
-```
-mysql -uroot -h127.0.0.1 -P3310  -e " select backup_id, backup_destination, from_unixtime(left(consistency_time_utc,10) + right(consistency_time_utc,6)/1000000) as backup_time, (end_time_utc - start_time_utc)/1000000 as duration from mysql.backup_history where backup_format='IMAGE' and backup_type='FULL' order by backup_time desc limit 1\G" |  grep backup_destination|cut -f2 -d\"
-```
-### Create 
+### Create Backup Script
 ```
 cat << EOF > /lab/script/auto_backup.sh 
 echo "*********************************************************"

@@ -104,7 +104,7 @@ restart;
 ```
 ### Test kill process MySQL Server
 ```
-more /lab/mysql_home01/*.pid
+more /lab/mysql_home01/mysqld.pid
 ```
 See number 3698(Sample)
 ```

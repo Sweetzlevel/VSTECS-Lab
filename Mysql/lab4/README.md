@@ -109,7 +109,7 @@ insert into backup.test set text = "Inc Backup";
 ```
 ### Incremental backup
 ```
-mysqlbackup --defaults-file=/lab/backup/config/my.cnf --port=3310 --protocol=tcp --user=root --incremental --incremental-base=dir:/lab/backup/full/ --incremental-backup-dir=/lab/backup/inc/ backup
+time mysqlbackup --defaults-file=/lab/backup/config/my.cnf --port=3310 --protocol=tcp --user=root --incremental --incremental-base=dir:/lab/backup/full/ --incremental-backup-dir=/lab/backup/inc/ backup
 
 ```
 

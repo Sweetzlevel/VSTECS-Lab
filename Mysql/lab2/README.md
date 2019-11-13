@@ -45,6 +45,8 @@ sudo -u mysql /lab/mysql/bin/mysqld --defaults-file=/lab/mysql_home01/my.cfg 2>&
 ### Connect to mysqlserver 
 ```
 mysql -u root -h 127.0.0.1 -P3310
+or
+mysql -S /lab/mysql_home01/mysqld.sock
 ```
 ## Storage Engines
 ### InnoDB

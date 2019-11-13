@@ -86,11 +86,11 @@ mysql>
 ```
 drop database backup;
 drop database mydb;
-
+\q
 ```
 ### Import  data 
 ```
-
+mysql -S /lab/mysql_home01/mysqld.sock < /lab/backup/dump/mydump.sql
 ```
 
 

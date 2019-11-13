@@ -16,14 +16,14 @@ Uncomment this line
 ![](img/01.PNG) 
 
 ## Add Connection 
-![](img/x02.PNG)
+![](img/02.PNG)
 
 ## Edit Connection 
-![](img/x03.PNG)
-![](img/x04.PNG)
+![](img/03.PNG)
+![](img/04.PNG)
 
 ## Work
 ![](img/05.PNG)
 
 ## Configure Mysql Enterprise Backup
-![](img/06.PNG)
+![](img/06.PNG) 

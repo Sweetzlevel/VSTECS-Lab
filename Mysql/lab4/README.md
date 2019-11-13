@@ -71,7 +71,8 @@ mkdir -p /lab/backup/dump
 mkdir -p /lab/backup/full
 mkdir -p /lab/backup/inc
 mkdir -p /lab/backup/log
-
+mkdir -p /lab/backup/config
+cp /lab/mysql_home01/*.cnf /lab/backup/config/
 ```
 ### Dump all data 
 ```
@@ -99,73 +100,18 @@ time mysql -S /lab/mysql_home01/mysqld.sock < /lab/backup/dump/mydump.sql
 time mysqlbackup --port=3310 --protocol=tcp --user=root --backup-dir=/lab/backup/full/ backup-and-apply-log
 ```
 
-
-
-
-
-
-
-### Backup data 
+### Incremental data
 ```
-time mysqlbackup --port=3310 --host=127.0.0.1 --protocol=tcp --user=root --backup-dir=/lab/backup/full --with-timestamp --backup-image=image3310.img --compress backup-to-image > /lab/backup/log/mybackup.log 2>&1
-
-cat /lab/backup/log/mybackup.log
+mysql -S /lab/mysql_home01/mysqld.sock 
+Mysql> 
+insert into backup.test set text = "Inc Backup";
+\q
+```
+### Incremental backup
+```
+mysqlbackup --defaults-file=/etc/my.cnf --port=3306 --protocol=tcp --user=root --incremental --incremental-base=dir:/tmp/backups/full/ --incremental-backup-dir=/tmp/backups/inc/ backup
 ```
 
-### View data dir 
-```
-mysql -uroot -h127.0.0.1 -P3310 -e "select @@datadir\G" |grep datadir|cut -f2 -d\  
 
-```
-Note: Path Source
 
-### View image folder 
-```
-mysql -uroot -h127.0.0.1 -P3310  -e " select backup_id, backup_destination, from_unixtime(left(consistency_time_utc,10) + right(consistency_time_utc,6)/1000000) as backup_time, (end_time_utc - start_time_utc)/1000000 as duration from mysql.backup_history where backup_format='IMAGE' and backup_type='FULL' order by backup_time desc limit 1\G" |  grep backup_destination|cut -f2 -d\"
-```
-Note: Path Destination
-
- ### Copy auto files from data dir to image folder 
- cp [Path Source]/auto.cnf [Path Destination]
- 
- # Restore 
- ## Preparation 
- ```
- mysql -uroot -h127.0.0.1 -P3310 -e "shutdown;"
- rm -rf /lab/mysql_home01/*
- mkdir -p /lab/restore 
- ls -lt /lab/backup/full/*/*.img|sed -n '1 p'|awk '{print $9;}' 
- ```
- Note:show image to restore 
- 
- ## Restore Image 
- ```
- mysqlbackup --defaults-file=[BACKUP PATH]/my.cfg \
-        --backup-dir=/lab/restore \
-        --backup-image= [IMAGE PATH]\
-        image-to-backup-dir
-```
- ## Uncompress Image 
-``` 
- mysqlbackup --defaults-file=[BACKUP PATH]/my.cfg \
-        --backup-dir=/lab/restore  \
-        --uncompress \
-        apply-log
- ```
- ## Copy back
- ```
-  mysqlbackup --defaults-file=[IMAGE PATH]/my.cfg \
-        --force --backup-dir=/lab/restore \
-        copy-back
-  cp -f [IMAGE PATH]/my.cfg /lab/mysql_home01/ 
-  cp -f [IMAGE PATH]/auto.cfg /lab/mysql_home01/
- ```
- ## Start Server 
- ```
- sudo -u mysql /lab/mysql/bin/mysqld_safe --defaults-file=/lab/mysql_home01/my.cfg 2>&1 &>/dev/null &
- ```
- 
- 
- 
- 
 

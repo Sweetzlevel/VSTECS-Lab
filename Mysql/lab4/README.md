@@ -113,6 +113,43 @@ time mysqlbackup --defaults-file=/lab/backup/config/my.cnf --port=3310 --protoco
 
 ```
 
+### Point in time  
+```
+mysql -S /lab/mysql_home01/mysqld.sock 
+mysql> 
+insert into backup.test set text = "Point In Time";
+\q
+```
 
+### Backup history
+```
+mysql -S /lab/mysql_home01/mysqld.sock 
+mysql> 
+use mysql
+select * from backup_history\G
+select * from backup_progress;
+\q
+```
 
+### Show Backup size
+```
+du -sh /lab/backup/full/ /lab/backup/inc/
+``` 
 
+### Restore
+```
+mysql -S /lab/mysql_home01/mysqld.sock 
+mysql> 
+select * from backup.test;
+drop database backup;
+drop database mydb;
+shutdown;
+\q
+```
+### Delete all data
+```
+rm -rf /lab/mysql_home01/*
+chown -R mysql.mysql /lab/backup/
+time sudo -u mysql mysqlbackup --defaults-file=/lab/backup/config/my.cnf --backup-dir=/lab/backup/full/ copy-back --force
+
+```

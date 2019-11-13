@@ -92,7 +92,6 @@ show variables like 'general_log%';
 ```
 open new terminal 
 ```
-cd /lab/mysql_home01/
 tail -f <PATH files in Value>.log
 ```
 

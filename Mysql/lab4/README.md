@@ -16,11 +16,8 @@ cat << EOF > /lab/script/init.sh
 mysql -t -S /lab/mysql_home01/mysqld.sock << EOL
 create database if not exists mydb;
 use mydb;
-create table if not exists mytable1 (f1 int not null primary key, f2 varchar(20)
-);
-create table if not exists mytable2 (f1 int not null auto_increment primary key,
- f2 varchar(20));
-m
+create table if not exists mytable1 (f1 int not null primary key, f2 varchar(20));
+create table if not exists mytable2 (f1 int not null auto_increment primary key, f2 varchar(20));
 EOL
 
 mysqlsh --uri root:@127.0.0.1:3310 << EOL

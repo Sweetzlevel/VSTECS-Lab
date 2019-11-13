@@ -2,6 +2,10 @@
 MySQL Workbench
 
 # Preparation
+|  |Pass a lab in below |
+| ------------- | ------------- |
+[Lab1](lab1) | MySQL Installation   
+
 ```
 adduser workshop
 passwd workshop

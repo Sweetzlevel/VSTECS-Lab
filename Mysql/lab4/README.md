@@ -103,13 +103,14 @@ time mysqlbackup --port=3310 --protocol=tcp --user=root --backup-dir=/lab/backup
 ### Incremental data
 ```
 mysql -S /lab/mysql_home01/mysqld.sock 
-Mysql> 
+mysql> 
 insert into backup.test set text = "Inc Backup";
 \q
 ```
 ### Incremental backup
 ```
-mysqlbackup --defaults-file=/etc/my.cnf --port=3306 --protocol=tcp --user=root --incremental --incremental-base=dir:/tmp/backups/full/ --incremental-backup-dir=/tmp/backups/inc/ backup
+mysqlbackup --defaults-file=/lab/backup/config/my.cnf --port=3310 --protocol=tcp --user=root --incremental --incremental-base=dir:/lab/backup/full/ --incremental-backup-dir=/lab/backup/inc/ backup
+
 ```
 
 

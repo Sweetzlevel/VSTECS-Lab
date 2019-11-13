@@ -66,7 +66,7 @@ mkdir -p /lab/backup/log
 ```
 ### Dump all data 
 ```
-time mysqldump -uroot -h127.0.0.1 -P3310 --all-databases --set-gtid-purged=auto --triggers --routines --events --single-transaction > lab/backup/dump/mydump.sql
+time mysqldump -uroot -h127.0.0.1 -P3310 --all-databases --set-gtid-purged=auto --triggers --routines --events --single-transaction > /lab/backup/dump/mydump.sql
 
 ```
 ### Backup data 

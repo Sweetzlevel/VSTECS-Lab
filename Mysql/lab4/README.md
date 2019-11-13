@@ -90,7 +90,7 @@ drop database mydb;
 ```
 ### Import  data 
 ```
-mysql -S /lab/mysql_home01/mysqld.sock < /lab/backup/dump/mydump.sql
+time mysql -S /lab/mysql_home01/mysqld.sock < /lab/backup/dump/mydump.sql
 ```
 
 

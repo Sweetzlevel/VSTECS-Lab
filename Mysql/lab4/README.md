@@ -140,8 +140,8 @@ shutdown;
 ```
 ### Delete all data
 ```
-rm -rf /lab/mysql_home01/*
-chown -R mysql.mysql /lab/backup/
+mv /lab/mysql_home01 /tmp
+chown -R mysql.mysql /lab
 ```
 ### Restore Full backup
 ```
@@ -158,7 +158,7 @@ sudo -u mysql /lab/mysql/bin/mysqld_safe --defaults-file=/lab/mysql_home01/my.cn
 ### Test 
 ```
 mysql -S /lab/mysql_home01/mysqld.sock 
-mysql>
+mysql>mys       
 select * from backup.test;
 shutdown;
 \q

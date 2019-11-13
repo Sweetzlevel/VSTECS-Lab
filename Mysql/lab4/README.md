@@ -96,7 +96,7 @@ time mysql -S /lab/mysql_home01/mysqld.sock < /lab/backup/dump/mydump.sql
 
 ### Backup data 
 ```
-time mysqlbackup --port=3310 --protocol=tcp --user=root --backup-dir=/lab/backup/full/backup-and-apply-log
+time mysqlbackup --port=3310 --protocol=tcp --user=root --backup-dir=/lab/backup/full/ backup-and-apply-log
 ```
 
 

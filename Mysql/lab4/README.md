@@ -7,7 +7,9 @@ MySQL Enterprise Backup
 ### Started with mysqld_safe
 ```
 sudo -u mysql /lab/mysql/bin/mysqld_safe --defaults-file=/lab/mysql_home01/my.cfg 2>&1 &>/dev/null &
-
+```
+### Create sample data 
+```
 mkdir /lab/script
 cat << EOF > /lab/script/init.sh
 mysql -t -S /lab/mysql_home01/mysqld.sock << EOL

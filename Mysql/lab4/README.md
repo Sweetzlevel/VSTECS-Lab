@@ -113,14 +113,6 @@ time mysqlbackup --defaults-file=/lab/backup/config/my.cnf --port=3310 --protoco
 
 ```
 
-### Point in time  
-```
-mysql -S /lab/mysql_home01/mysqld.sock 
-mysql> 
-insert into backup.test set text = "Point In Time";
-\q
-```
-
 ### Backup history
 ```
 mysql -S /lab/mysql_home01/mysqld.sock 
@@ -150,6 +142,47 @@ shutdown;
 ```
 rm -rf /lab/mysql_home01/*
 chown -R mysql.mysql /lab/backup/
+```
+### Restore Full backup
+```
 time sudo -u mysql mysqlbackup --defaults-file=/lab/backup/config/my.cnf --backup-dir=/lab/backup/full/ copy-back --force
+cp /lab/backup/config/* /lab/mysql_home01/
+chown -R mysql.mysql /lab/mysql_home01/
+```
+### Start Server 
+```
+sudo -u mysql /lab/mysql/bin/mysqld_safe --defaults-file=/lab/mysql_home01/my.cnf 2>&1 &>/dev/null &
+
+```
+
+### Test 
+```
+mysql -S /lab/mysql_home01/mysqld.sock 
+mysql>
+select * from backup.test;
+shutdown;
+\q
+
+```
+
+### Restore incremental
+```
+time sudo -u mysql mysqlbackup --defaults-file=/lab/backup/config/my.cnf --incremental-backup-dir=/lab/backup/inc --backup-dir=/lab/backup/full/ apply-incremental-backup
+
+time sudo -u mysql mysqlbackup --defaults-file=/lab/backup/config/my.cnf --backup-dir=/lab/backup/full/ copy-back --force
+
+```
+### Start Server 
+```
+sudo -u mysql /lab/mysql/bin/mysqld_safe --defaults-file=/lab/mysql_home01/my.cnf 2>&1 &>/dev/null &
+
+```
+### Test 
+```
+mysql -S /lab/mysql_home01/mysqld.sock 
+mysql>
+select * from backup.test;
+shutdown;
+\q
 
 ```

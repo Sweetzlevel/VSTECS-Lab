@@ -83,4 +83,45 @@ Note: Path Destination
 
  ### Copy auto files from data dir to image folder 
  cp [Path Source]/auto.cnf [Path Destination]
+ 
+ # Restore 
+ ## Preparation 
+ ```
+ mysql -uroot -h127.0.0.1 -P3310 -e "shutdown;"
+ rm -rf /lab/mysql_home01/*
+ mkdir -p /lab/restore 
+ ls -lt /lab/backup/full/*/*.img|sed -n '1 p'|awk '{print $9;}' 
+ ```
+ Note:show image to restore 
+ 
+ ## Restore Image 
+ ```
+ mysqlbackup --defaults-file=[BACKUP PATH]/my.cfg \
+        --backup-dir=/lab/restore \
+        --backup-image= [IMAGE PATH]\
+        image-to-backup-dir
+```
+ ## Uncompress Image 
+``` 
+ mysqlbackup --defaults-file=[BACKUP PATH]/my.cfg \
+        --backup-dir=/lab/restore  \
+        --uncompress \
+        apply-log
+ ```
+ ## Copy back
+ ```
+  mysqlbackup --defaults-file=[IMAGE PATH]/my.cfg \
+        --force --backup-dir=/lab/restore \
+        copy-back
+  cp -f [IMAGE PATH]/my.cfg /lab/mysql_home01/ 
+  cp -f [IMAGE PATH]/auto.cfg /lab/mysql_home01/
+ ```
+ ## Start Server 
+ ```
+ sudo -u mysql /lab/mysql/bin/mysqld_safe --defaults-file=/lab/mysql_home01/my.cfg 2>&1 &>/dev/null &
+ ```
+ 
+ 
+ 
+ 
 

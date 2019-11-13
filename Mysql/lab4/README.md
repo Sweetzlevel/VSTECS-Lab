@@ -40,7 +40,6 @@ for (i=0;i<1000;i++) {
         session.runSql('create table mydb.xmytable' + i + ' (primary key(f1)) select * from mydb.mytable1');
         session.runSql('set sql_log_bin=1');
 }
-session.runSql('show table status');
 EOL
 EOF
 chmod +x /lab/script/init.sh

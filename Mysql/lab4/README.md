@@ -20,7 +20,7 @@ create table if not exists mytable1 (f1 int not null primary key, f2 varchar(20)
 );
 create table if not exists mytable2 (f1 int not null auto_increment primary key,
  f2 varchar(20));
-show table status;
+m
 EOL
 
 mysqlsh --uri root:@127.0.0.1:3310 << EOL
@@ -34,6 +34,7 @@ for (i=0;i<10000;i++) {
     session.runSql('insert into mydb.mytable2 (f2) values ("hello world");');
 }
 session.runSql('set sql_log_bin=1');
+session.runSql('show table status');
 EOL
 mysqlsh --uri root:@127.0.0.1:3310 << EOL
 var i
@@ -42,13 +43,20 @@ for (i=0;i<1000;i++) {
         session.runSql('create table mydb.xmytable' + i + ' (primary key(f1)) select * from mydb.mytable1');
         session.runSql('set sql_log_bin=1');
 }
-
+session.runSql('show table status');
 EOL
 EOF
 chmod +x /lab/script/init.sh
-/lab/script/init.sh
-
 ```
+### Run Script
+```
+/lab/script/init.sh
+```
+### Check table status @mydb
+```
+ mysql -S /lab/mysql_home01/mysqld.sock -e 'use mydb;show table status;'
+```
+
 ### Create Backup Folder
 ```
 mkdir -p /lab/backup/dump

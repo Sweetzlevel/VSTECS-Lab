@@ -80,7 +80,7 @@ sudo -H -u mysql bash -c '/usr/sbin/mysqld --initialize-insecure --basedir=/lab/
 ``` 
 ### Create mysql configure files 
 ```
-cat << EOF > /lab/mysql_home01/my.cfg
+cat << EOF > /lab/mysql_home01/my.cnf
 [mysqld]
 
 sql_mode=''

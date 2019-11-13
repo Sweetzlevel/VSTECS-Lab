@@ -45,5 +45,5 @@ for (i=0;i<1000;i++) {
 EOL
 EOF
 chmod +x /lab/script/init.sh
-/lab/script/init.sh >> /dev/null 
+/lab/script/init.sh 
 ```

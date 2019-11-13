@@ -4,8 +4,8 @@
 ### Journey Lab ###
 |  | |
 | ------------- | ------------------------------------------------------- |
-| [Setup Preparation](Started) | Preparation Lab  
+| [Preparation](Started) | Preparation Lab / Create Server fo this LAB 
 | [Lab1](lab1) | MySQL Installation   
 | [Lab2](lab2) | MySQL Introduction  
 | [Lab3](lab3) | MySQL Workbench
-| [Lab3](lab4) | MySQL Enterprise Backup
+| [Lab4](lab4) | MySQL Enterprise Backup

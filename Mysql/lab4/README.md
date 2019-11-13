@@ -82,5 +82,5 @@ mysql -uroot -h127.0.0.1 -P3310  -e " select backup_id, backup_destination, from
 Note: Path Destination
 
  ### Copy auto files from data dir to image folder 
- cp <Path Source> <Path Destination>
+ cp <Path Source>/auto.cnf <Path Destination>
 

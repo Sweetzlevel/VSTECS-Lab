@@ -20,6 +20,7 @@ mysql -u root -h 127.0.0.1 -P3310
 or 
 mysql -u root -S /lab/mysql_home01/mysqld.sock
 ```
+```
 mysql>
 ```
 

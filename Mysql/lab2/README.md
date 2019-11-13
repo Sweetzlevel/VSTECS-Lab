@@ -6,7 +6,7 @@
 ![](img/02.PNG)
 
 # Preparation
-
+[Create New Instance](lab1#create-new-mysql-instance)
 
 # MySQLComponents
 ### Started with mysqld_safe

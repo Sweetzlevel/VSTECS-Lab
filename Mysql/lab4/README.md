@@ -56,11 +56,24 @@ chmod +x /lab/script/init.sh
 ```
  mysql -S /lab/mysql_home01/mysqld.sock -e 'use mydb;show table status;'
 ```
+###
+```
+mysql -S /lab/mysql_home01/mysqld.sock 
+```
+mysql>
+```
+create database backup;
+create table backup.test (id int AUTO_INCREMENT PRIMARY KEY, text varchar(255));
+insert into backup.test set text = "Full backup";
+\q
+
+```
 
 ### Create Backup Folder
 ```
 mkdir -p /lab/backup/dump
 mkdir -p /lab/backup/full
+mkdir -p /lab/backup/inc
 mkdir -p /lab/backup/log
 
 ```
@@ -69,6 +82,33 @@ mkdir -p /lab/backup/log
 time mysqldump -uroot -h127.0.0.1 -P3310 --all-databases --set-gtid-purged=auto --triggers --routines --events --single-transaction > /lab/backup/dump/mydump.sql
 
 ```
+### Drop database
+```
+mysql -S /lab/mysql_home01/mysqld.sock 
+```
+mysql>
+```
+drop database backup;
+drop database mydb;
+
+```
+### Import  data 
+```
+
+```
+
+
+### Backup data 
+```
+time mysqlbackup --port=3310 --protocol=tcp --user=root --backup-dir=/lab/backup/full/backup-and-apply-log
+```
+
+
+
+
+
+
+
 ### Backup data 
 ```
 time mysqlbackup --port=3310 --host=127.0.0.1 --protocol=tcp --user=root --backup-dir=/lab/backup/full --with-timestamp --backup-image=image3310.img --compress backup-to-image > /lab/backup/log/mybackup.log 2>&1

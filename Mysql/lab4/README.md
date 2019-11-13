@@ -70,10 +70,10 @@ time mysqlbackup --port=3310 --host=127.0.0.1 --protocol=tcp --user=root --backu
 echo "*********************************************************"
 read
 cat /lab/backup/log/mybackup.log
-MYDATADIR= mysql -uroot -h127.0.0.1 -P3310 -e "select @@datadir\G" |grep datadir|cut -f2 -d\  
+MYDATADIR= `mysql -uroot -h127.0.0.1 -P3310 -e "select @@datadir\G" |grep datadir|cut -f2 -d\`  
 echo $MYDATADIR
-DEST=mysql -uroot -h127.0.0.1 -P3310  -e " select backup_id, backup_destination, from_unixtime(left(consistency_time_utc,10) + right(consistency_time_utc,6)/1000000) as backup_time, (end_time_utc - start_time_utc)/1000000 as duration from mysql.backup_history where backup_format='IMAGE' and backup_type='FULL' order by backup_time desc limit 1\G" |  grep backup_destination|cut -f2 -d\"
-if [ -r $MYDATADIR/auto.cnf ]
+DEST=`mysql -uroot -h127.0.0.1 -P3310  -e " select backup_id, backup_destination, from_unixtime(left(consistency_time_utc,10) + right(consistency_time_utc,6)/1000000) as backup_time, (end_time_utc - start_time_utc)/1000000 as duration from mysql.backup_history where backup_format='IMAGE' and backup_type='FULL' order by backup_time desc limit 1\G" |  grep backup_destination|cut -f2 -d\"
+if [ -r $MYDATADIR/auto.cnf ]`
 then
         echo "COPY $MYDATADIR/auto.cnf to the backup folder - $DEST"
         cp $MYDATADIR/auto.cnf $DEST

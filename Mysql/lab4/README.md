@@ -1,5 +1,5 @@
-# MySQL Enterprise Edition Lab3
-MySQL Workbench
+# MySQL Enterprise Edition Lab4
+MySQL Enterprise Backup
 
 # Preparation
 |  |Pass a lab in below |
@@ -9,6 +9,7 @@ MySQL Workbench
 or 
 
 ## Create new MySQL Instance
+Do not do this if pass lab 2
 ```
 cd /opt/download/mysql/mysql8.0/tar
 tar -zxvf *.* 
@@ -19,6 +20,7 @@ chown mysql.mysql /lab
 sudo -H -u mysql bash -c '/usr/sbin/mysqld --initialize-insecure --basedir=/lab/mysql/bin/ --datadir=/lab/mysql_home01'
 ``` 
 ### Create mysql configure files 
+Do not do this if pass lab 2
 ```
 cat << EOF > /lab/mysql_home01/my.cfg
 [mysqld]

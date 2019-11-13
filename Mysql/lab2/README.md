@@ -74,10 +74,6 @@ mysql>
 ```
 shutdown;
 ```
-### Started with mysqld
-```
-sudo -u mysql /lab/mysql/bin/mysqld --defaults-file=/lab/mysql_home01/my.cfg 2>&1 &>/dev/null &
-```
 
 ### Started with mysqld_safe
 ```

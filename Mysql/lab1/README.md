@@ -8,6 +8,8 @@ need super user
 ```
 rpm -Uhv /opt/packages/mysql/*.rpm
 rpm -Uhv /opt/packages/shell/*.rpm
+cd /opt/download/mysql/mysql8.0/tar
+tar -zxvf *.* 
 ```
 ### Edit MySQL Configuration files ###
 need super user
@@ -70,8 +72,6 @@ show databases;
 
 ## Create new MySQL Instance
 ```
-cd /opt/download/mysql/mysql8.0/tar
-tar -zxvf *.* 
 mkdir /lab
 cd /lab
 ln -s /opt/download/mysql/mysql8.0/tar/mysql-commercial-8.0.18-el7-x86_64 mysql

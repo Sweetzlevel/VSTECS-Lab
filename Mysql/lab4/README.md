@@ -7,6 +7,7 @@ MySQL Enterprise Backup
 ### Started with mysqld_safe
 ```
 sudo -u mysql /lab/mysql/bin/mysqld_safe --defaults-file=/lab/mysql_home01/my.cfg 2>&1 &>/dev/null &
+
 ```
 ### Create sample data 
 ```
@@ -45,5 +46,60 @@ for (i=0;i<1000;i++) {
 EOL
 EOF
 chmod +x /lab/script/init.sh
-/lab/script/init.sh 
+/lab/script/init.sh
+
 ```
+### Create Backup Folder
+```
+mkdir -p /lab/backup/dump
+mkdir -p /lab/backup/full
+mkdir -p /lab/backup/log
+
+```
+### Dump all data 
+```
+time mysqldump -uroot -h127.0.0.1 -P3310 --all-databases --set-gtid-purged=auto --triggers --routines --events --single-transaction > lab/backup/dump/mydump.sql
+
+```
+### Backup data 
+```
+time mysqlbackup --port=3310 --host=127.0.0.1 --protocol=tcp --user=root --backup-dir=/lab/backup/full --with-timestamp --backup-image=image3310.img --compress backup-to-image > /lab/backup/log/mybackup.log 2>&1
+
+cat /lab/backup/log/mybackup.log
+```
+
+### View data dir 
+```
+mysql -uroot -h127.0.0.1 -P3310 -e "select @@datadir\G" |grep datadir|cut -f2 -d\  
+
+```
+### View image folder 
+```
+mysql -uroot -h127.0.0.1 -P3310  -e " select backup_id, backup_destination, from_unixtime(left(consistency_time_utc,10) + right(consistency_time_utc,6)/1000000) as backup_time, (end_time_utc - start_time_utc)/1000000 as duration from mysql.backup_history where backup_format='IMAGE' and backup_type='FULL' order by backup_time desc limit 1\G" |  grep backup_destination|cut -f2 -d\"
+```
+### Create 
+```
+cat << EOF > /lab/script/auto_backup.sh 
+echo "*********************************************************"
+echo "backing up Database using MEB ....."
+time mysqlbackup --port=3310 --host=127.0.0.1 --protocol=tcp --user=root --backup-dir=/lab/backup/full --with-timestamp --backup-image=image3310.img --compress backup-to-image > /lab/backup/log/mybackup.log 2>&1
+echo "*********************************************************"
+read
+cat /lab/backup/log/mybackup.log
+MYDATADIR= mysql -uroot -h127.0.0.1 -P3310 -e "select @@datadir\G" |grep datadir|cut -f2 -d\  
+echo $MYDATADIR
+DEST=mysql -uroot -h127.0.0.1 -P3310  -e " select backup_id, backup_destination, from_unixtime(left(consistency_time_utc,10) + right(consistency_time_utc,6)/1000000) as backup_time, (end_time_utc - start_time_utc)/1000000 as duration from mysql.backup_history where backup_format='IMAGE' and backup_type='FULL' order by backup_time desc limit 1\G" |  grep backup_destination|cut -f2 -d\"
+if [ -r $MYDATADIR/auto.cnf ]
+then
+        echo "COPY $MYDATADIR/auto.cnf to the backup folder - $DEST"
+        cp $MYDATADIR/auto.cnf $DEST
+fi
+EOF
+chmod +x /lab/script/auto_backup.sh
+```
+### Runing Backup Script
+```
+/lab/script/auto_backup.sh
+
+```
+

@@ -30,8 +30,9 @@ datadir=/lab/mysql_home01/
 basedir=/lab/mysql/bin/
 plugin_dir=/usr/lib64/mysql/plugin/
 lc-messages-dir=/usr/share/mysql-8.0/
-log-error=/var/log/mysqld.log
-pid-file=/var/run/mysqld/mysqld.pid
+
+log-error=/lab/mysql_home01/mysqld.log
+pid-file=/lab/mysql_home01/mysqld.pid
 port=3310
 socket=/lab/mysql_home01/mysqld.sock
 EOF
@@ -91,24 +92,24 @@ mysql>
 ```
 show variables like 'general_log';
 set global general_log = true;
+show variables like 'general_log%';
 ```
 open new terminal 
 ```
 cd /lab/mysql_home01/
-tail -f *.log
+tail -f <PATH files in Value>.log
 ```
 
 Go to mysql terminal
 ```
 select 1;
 restart;
-show variables like 'general_log%';
 set persist general_log = true;
 restart;
 ```
 ### Test kill process MySQL Server
 ```
-more *.pid
+more /lab/mysql_home01/*.pid
 ```
 See number 3698(Sample)
 ```

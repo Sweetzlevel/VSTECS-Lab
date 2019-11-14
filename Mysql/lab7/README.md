@@ -11,6 +11,6 @@ Create new Server --> uxnode1
 # Server [uxnode1]
 [Install MySQL](../lab1) 
 
-#Install MySQL Enterprise Monitor
+# Install MySQL Enterprise Monitor
 
 Next: [ MySQL Enterprise Encryption](../lab8) 

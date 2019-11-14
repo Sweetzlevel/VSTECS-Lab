@@ -31,3 +31,5 @@ Uncomment this line
 
 ## Configure Mysql Enterprise Backup
 ![](img/06.PNG) 
+
+Next: [ MySQL Enterprise Backup](../lab4) 

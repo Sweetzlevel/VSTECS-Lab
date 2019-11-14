@@ -63,4 +63,4 @@ shutdown;
 ```
 
 
-Next: [ MySQL Enterprise Encryption](../lab7) 
+Next: [ MySQL Enterprise Monitor](../lab7) 

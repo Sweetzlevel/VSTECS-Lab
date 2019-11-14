@@ -17,10 +17,9 @@ need super user
 vi /etc/my.cnf
 ```
 #### Add this ####
+Note: Change mode vi to insert, Key(i)
 Only in lab/test/dev Do not use on production
 ```
-Note: Change mode vi to insert, Key(i)
-
 sql_mode=''
 innodb_buffer_pool_size=60M
 default_authentication_plugin=mysql_native_password

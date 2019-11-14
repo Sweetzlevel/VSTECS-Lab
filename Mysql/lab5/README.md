@@ -1,4 +1,4 @@
-# MySQL Enterprise Edition Lab4
+# MySQL Enterprise Edition Lab5
 MySQL Enterprise Firewall
 
 # Preparation
@@ -106,4 +106,4 @@ shutdown;
 \q
 ```
 
-Next: [ MySQL Enterprise Firewall](../lab5) 
+Next: [ MySQL Enterprise Encryption](../lab6) 

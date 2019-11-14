@@ -157,7 +157,7 @@ sudo -u mysql /lab/mysql/bin/mysqld_safe --defaults-file=/lab/mysql_home01/my.cn
 ### Test 
 ```
 mysql -S /lab/mysql_home01/mysqld.sock 
-mysql>mys       
+mysql>      
 select * from backup.test;
 shutdown;
 \q

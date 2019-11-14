@@ -11,7 +11,7 @@
 # MySQLComponents
 ### Started with mysqld_safe
 ```
-sudo -u mysql /lab/mysql/bin/mysqld_safe --defaults-file=/lab/mysql_home01/my.cnf 2>&1 &>/dev/null &
+sudo -u mysql /lab/mysql/bin/mysqld --defaults-file=/lab/mysql_home01/my.cnf 2>&1 &>/dev/null &
 ```
 ### Connect to mysqlserver 
 

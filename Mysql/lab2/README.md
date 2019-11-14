@@ -21,7 +21,12 @@ or
 mysql -u root -S /lab/mysql_home01/mysqld.sock
 ```
 mysql>
+### If Need to easy connect to lab add this at end of files to /etc/my.cnf
+```
+[client]
+socket= /lab/mysql_home01/mysqld.sock
 
+```
 
 ## Storage Engines
 ### InnoDB

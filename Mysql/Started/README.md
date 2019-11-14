@@ -19,14 +19,14 @@ description: Step by Step to Provisioning
 ![](img/01.png)
 ## Sign in ## 
 ![](img/02.png)
-## Goto Template Tab## 
+## Goto Template Tab ## 
 ![](img/03.png)
 ## Right Click Lab_MySQLEE_813 ##
 New Vm from this template
 ![](img/04.png)
 ## VM name u1master## 
 ![](img/05.PNG)
-## Select you resource group## 
+## Select you resource group ## 
 ![](img/06.PNG)
 ## Select 3par Storage ##   
 ![](img/07.PNG)
@@ -40,6 +40,14 @@ New Vm from this template
 ![](img/11.PNG)
 ## Finish  ##   
 ![](img/12.PNG)
+## Login Console ## Note: Auto login to root set network by # nmtui  
+![](img/13.PNG)
+## Edit Connection ##   
+![](img/14.PNG)
+## Select ens160##   
+![](img/15.PNG)
+## Login Console##   
+![](img/13.PNG)
 ## Login Console##   
 ![](img/13.PNG)
 

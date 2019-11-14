@@ -98,5 +98,4 @@ port=3310
 socket=/lab/mysql_home01/mysqld.sock
 EOF
 ``` 
-
-
+Next: [ MySQL Introduction ](../lab2)   

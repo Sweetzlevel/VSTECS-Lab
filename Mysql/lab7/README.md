@@ -68,21 +68,4 @@ After all done
 /opt/mysql/enterprise/monitor/mysqlmonitorctl.sh start
 ```
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-```
-Next: [ MySQL Enterprise Encryption](../lab8) 
+Next: [ MySQL Repication](../lab8) 

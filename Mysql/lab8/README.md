@@ -7,7 +7,7 @@ MySQL Replication
 |[uxmaster](../lab1) |[Master]()
 |[uxnode1](../lab1) |[Slave]()
 
-#On the MASTER
+# On the MASTER
 edit /etc/my.cnf 
 ```
 log-bin

@@ -4,8 +4,8 @@ MySQL Replication
 # Preparation
 |Create VMname| Role    |
 |------------------------|------------------------|
-|[uxmaster](../lab1) |[Master]()
-|[uxnode1](../lab1) |[Slave]()
+|[uxmaster](../lab1) |[Master](../lab8#on-the-master)
+|[uxnode1](../lab1) |[Slave](../lab8#on-the-master)
 
 # On the MASTER
 edit /etc/my.cnf 
@@ -87,6 +87,58 @@ show slave status\G
 ```
 ```
 tail -f /var/lib/mysql/Workshop-???.log
+```
+
+# Semi-Sync
+## On the Master
+mysql>
+```
+INSTALL PLUGIN rpl_semi_sync_master SONAME 'semisync_master.so';
+show plugins;
+
+SET GLOBAL rpl_semi_sync_master_enabled = 1; SET GLOBAL rpl_semi_sync_master_timeout = 10000;
+
+``` 
+## On the Slave
+mysql>
+```
+INSTALL PLUGIN rpl_semi_sync_slave SONAME 'semisync_slave.so';
+
+SET GLOBAL rpl_semi_sync_slave_enabled = 1;
+
+STOP SLAVE IO_THREAD; START SLAVE IO_THREAD;
+
+```
+## On Both
+mysql>
+```
+SHOW VARIABLES LIKE 'rpl_semi_sync%'; SHOW STATUS LIKE 'Rpl_semi_sync%';
+```
+# Test Repication
+### Disable Network connection 
+mysql>
+```
+insert into replication.test_replication (data) values ("Semi Sync broken....");
+
+select * from replication.test_replication;
+
+SHOW VARIABLES LIKE 'rpl_semi_sync%'; SHOW STATUS LIKE 'Rpl_semi_sync%';
+
+
+```
+### Enable Network connection 
+mysql
+```
+
+insert into replication.test_replication (data) values ("Semi Sync restore....");
+
+SHOW VARIABLES LIKE 'rpl_semi_sync%'; SHOW STATUS LIKE 'Rpl_semi_sync%';
+
+select * from replication.test_replication;
+```
+## On slave
+```
+select * from replication.test_replication;
 ```
 
 Next: [ M](../lab10) 

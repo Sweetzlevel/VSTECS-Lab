@@ -102,6 +102,8 @@ DROP FUNCTION read_firewall_users;
 DROP FUNCTION mysql_firewall_flush_status;     # MySQL 5.6.26 and up only
 DROP PROCEDURE mysql.sp_set_firewall_mode;
 DROP PROCEDURE mysql.sp_reload_firewall_rules; # MySQL 5.6.26 and up only
+shutdown; 
+\q
 ```
 
 Next: [ MySQL Enterprise Firewall](../lab5) 

@@ -57,4 +57,4 @@ Note: Auto login to root set network by command "nmtui"
 ![](img/19.PNG)
 
 ## Shutdown and take snapshot ##
-
+Next: [ MySQL Installation ](lab1)   

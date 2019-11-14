@@ -9,13 +9,13 @@ Create new Server --> uxnode1
 ||
 |--------------------------|
 | [Install MySQL](../lab1)
-| [install MySQL Enterprise Monitor](../lab7#install-mysql-enterprise-monitor)
+| [Install MySQL Enterprise Monitor](../lab7#install-mysql-enterprise-monitor)
 
 # Server [uxnode1]
 ||
 |--------------------------|
 | [Install MySQL](../lab1)
-| [install Agent](../lab7#install-mysql-enterprise-agent--uxnode1)
+| [Install MySQL Enterprise Monitor (Agent)](../lab7#install-mysql-enterprise-agent--uxnode1)
 
 # Install MySQL Enterprise Monitor
 ```

@@ -16,7 +16,11 @@ Create new Server --> uxnode1
 
 # Install MySQL Enterprise Monitor
 ```
-
+service httpd stop
+/opt/packages/mem/mysqlmonitor-8.0.0.8131-linux-x86_64-installer.bin
+```
+ALL <ENTER> except password (I put MySQL8.0)
+![Connect to server](https://uxmaster:18443)
 
 
 

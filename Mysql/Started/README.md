@@ -24,7 +24,7 @@ description: Step by Step to Provisioning
 ## Right Click Lab_MySQLEE_813 ##
 New Vm from this template
 ![](img/04.png)
-## VM name u1master## 
+## VM name u1master ## 
 ![](img/05.PNG)
 ## Select you resource group ## 
 ![](img/06.PNG)
@@ -40,16 +40,20 @@ New Vm from this template
 ![](img/11.PNG)
 ## Finish  ##   
 ![](img/12.PNG)
-## Login Console ## Note: Auto login to root set network by # nmtui  
+## Login Console ## 
+Note: Auto login to root set network by command "nmtui"  
 ![](img/13.PNG)
 ## Edit Connection ##   
 ![](img/14.PNG)
 ## Select ens160##   
 ![](img/15.PNG)
-## Login Console##   
-![](img/13.PNG)
-## Login Console##   
-![](img/13.PNG)
-
-
+## IPv4 Configure ##
+![](img/16.PNG)
+## IPv6 Configure ##
+![](img/17.PNG)
+## Back to set system hostname ##
+![](img/18.PNG)
+## System hostname ##
+![](img/17.PNG)
+Note: All of this Shutdown and take snapshot 
 ## Want to Learn More? ##

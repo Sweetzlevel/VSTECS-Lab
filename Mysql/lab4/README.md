@@ -31,7 +31,6 @@ for (i=0;i<10000;i++) {
     session.runSql('insert into mydb.mytable2 (f2) values ("hello world");');
 }
 session.runSql('set sql_log_bin=1');
-session.runSql('show table status');
 EOL
 mysqlsh --uri root:@127.0.0.1:3310 << EOL
 var i

@@ -56,5 +56,5 @@ Note: Auto login to root set network by command "nmtui"
 ## System hostname ##
 ![](img/19.PNG)
 
-## All of this Shutdown and take snapshot ##
+## Shutdown and take snapshot ##
 

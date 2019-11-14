@@ -2,8 +2,8 @@
 MySQL Replication
 
 # Preparation
-|Create VMame||
-|--------------------------|
+|Create VMname||
+|------------------------|------------------------|
 |[uxmaster](../lab1) |[Master]()
 |[uxnode1](../lab1) |[Slave]()
 

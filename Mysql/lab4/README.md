@@ -146,6 +146,7 @@ shutdown;
 ### Delete all data
 ```
 mv /lab/mysql_home01 /tmp
+mkdir -p /lab/mysql_home01
 chown -R mysql.mysql /lab
 ```
 ### Restore Full backup

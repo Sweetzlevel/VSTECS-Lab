@@ -89,8 +89,8 @@ default_authentication_plugin=mysql_native_password
 # server configuration
 datadir=/lab/mysql_home01/
 basedir=/lab/mysql/bin/
-plugin_dir=/usr/lib64/mysql/plugin/
-lc-messages-dir=/usr/share/mysql-8.0/
+plugin_dir=/lab/mysql/lib/plugin/
+lc-messages-dir=/lab/mysql/share
 
 log-error=/lab/mysql_home01/mysqld.log
 pid-file=/lab/mysql_home01/mysqld.pid

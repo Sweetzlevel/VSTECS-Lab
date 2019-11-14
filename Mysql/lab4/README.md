@@ -196,3 +196,4 @@ shutdown;
 \q
 
 ```
+Next: [ MySQL Enterprise Firewall](../lab5) 

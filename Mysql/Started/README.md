@@ -55,5 +55,6 @@ Note: Auto login to root set network by command "nmtui"
 ![](img/18.PNG)
 ## System hostname ##
 ![](img/19.PNG)
-Note: All of this Shutdown and take snapshot 
-## Want to Learn More? ##
+
+## All of this Shutdown and take snapshot ##
+

@@ -102,7 +102,9 @@ time mysqlbackup --port=3310 --protocol=tcp --user=root --backup-dir=/lab/backup
 ### Incremental data
 ```
 mysql -S /lab/mysql_home01/mysqld.sock 
+```
 mysql> 
+```
 insert into backup.test set text = "Inc Backup";
 \q
 ```
@@ -115,7 +117,9 @@ time mysqlbackup --defaults-file=/lab/backup/config/my.cnf --port=3310 --protoco
 ### Backup history
 ```
 mysql -S /lab/mysql_home01/mysqld.sock 
-mysql> 
+```
+mysql>
+```
 use mysql
 select * from backup_history\G
 select * from backup_progress;
@@ -130,7 +134,9 @@ du -sh /lab/backup/full/ /lab/backup/inc/
 ### Restore
 ```
 mysql -S /lab/mysql_home01/mysqld.sock 
-mysql> 
+```
+mysql>
+```
 select * from backup.test;
 drop database backup;
 drop database mydb;

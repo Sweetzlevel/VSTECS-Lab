@@ -141,4 +141,4 @@ select * from replication.test_replication;
 select * from replication.test_replication;
 ```
 
-Next: [ M](../lab10) 
+Next: [InnoDB Cluster](../lab9) 

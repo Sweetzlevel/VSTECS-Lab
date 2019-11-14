@@ -20,7 +20,7 @@ service httpd stop
 /opt/packages/mem/mysqlmonitor-8.0.0.8131-linux-x86_64-installer.bin
 ```
 ALL <ENTER> except password (I put MySQL8.0)
-![Connect to server](https://uxmaster:18443)
+[Connect to server](https://uxmaster:18443)
 
 ### If Monitor Server is Rebooted 
 ```
@@ -62,10 +62,5 @@ After all done
 /etc/init.d/mysql-monitor-agent start
 ```
 
-
-### If Monitor Server is Rebooted 
-```
-/opt/mysql/enterprise/monitor/mysqlmonitorctl.sh start
-```
 
 Next: [ MySQL Repication](../lab8) 

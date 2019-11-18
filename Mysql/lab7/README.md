@@ -37,11 +37,11 @@ ssh uxnode1
 service httpd stop
 mysql
 ```
-mysql
+mysql>
 ```
 create user mem@'%' identified by 'MySQL8.0'; grant all privileges on *.* to mem@'%'; flush privileges;
 \q
-````
+```
 ```
 /opt/packages/mem/mysqlmonitoragent-8.0.0.8131-linux-x86-64bit-installer.bin
 Input 
@@ -61,7 +61,9 @@ Input
     ...
     All Enter 
     ...
+```
 After all done 
+```
 /etc/init.d/mysql-monitor-agent start
 ```
 

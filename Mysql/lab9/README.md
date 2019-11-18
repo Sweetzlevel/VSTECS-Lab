@@ -1,5 +1,5 @@
-# MySQL Enterprise Edition Lab8
-MySQL Replication
+# MySQL Enterprise Edition Lab9
+MySQL INNODB Cluster
 
 # Preparation
 |Create VMname| Role    |
@@ -9,7 +9,7 @@ MySQL Replication
 |[uxnode3]|[Cluster-Node2]
 |[uxnode4]|[Cluster-Node3]
 
-## Install Mysql Server All Node
+## Install MySQL Server All Node
 ```
 rpm -Uhv /opt/packages/mysql/*.rpm
 systemctl enable mysqld
@@ -25,7 +25,7 @@ alter user root@'localhost' identified with mysql_native_password by '';
 create user root@'%' identified with mysql_native_password by ''; grant all privileges on *.* to root@'%' with grant option;
 flush privileges;
 ```
-# Install Mysql Innodb cluster by mysqlsh 
+# Install MySQL Innodb cluster with mysqlsh 
 ```
 mysqlsh
 ```
@@ -46,7 +46,7 @@ cluster.status();
 \q
 ```
 
-# Master 
+# Master Server 
 ```
 rpm -Uvh /opt/packages/router/*.rpm
 su - opc

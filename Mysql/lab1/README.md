@@ -76,7 +76,8 @@ cd /lab
 ln -s /opt/download/mysql/mysql8.0/tar/mysql-commercial-8.0.18-el7-x86_64 mysql
 chown mysql.mysql /lab
 sudo -H -u mysql bash -c '/usr/sbin/mysqld --initialize-insecure --basedir=/lab/mysql/bin/ --datadir=/lab/mysql_home01'
-``` 
+```
+
 ### Create mysql configure files 
 ```
 cat << EOF > /lab/mysql_home01/my.cnf
@@ -85,8 +86,9 @@ cat << EOF > /lab/mysql_home01/my.cnf
 sql_mode=''
 innodb_buffer_pool_size=60M
 default_authentication_plugin=mysql_native_password
-
+```
 # server configuration
+```
 datadir=/lab/mysql_home01/
 basedir=/lab/mysql/bin/
 plugin_dir=/lab/mysql/lib/plugin/
@@ -96,6 +98,7 @@ log-error=/lab/mysql_home01/mysqld.log
 pid-file=/lab/mysql_home01/mysqld.pid
 port=3310
 socket=/lab/mysql_home01/mysqld.sock
-EOF
-``` 
+
+```
+
 Next: [ MySQL Introduction ](../lab2)   

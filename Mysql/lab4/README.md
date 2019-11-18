@@ -51,7 +51,7 @@ chmod +x /lab/script/init.sh
 ```
  mysql -S /lab/mysql_home01/mysqld.sock -e 'use mydb;show table status;'
 ```
-###
+### Connect database 
 ```
 mysql -S /lab/mysql_home01/mysqld.sock 
 ```
@@ -99,7 +99,7 @@ time mysql -S /lab/mysql_home01/mysqld.sock < /lab/backup/dump/mydump.sql
 time mysqlbackup --port=3310 --protocol=tcp --user=root --backup-dir=/lab/backup/full/ backup-and-apply-log
 ```
 
-### Incremental data
+### Insert more data
 ```
 mysql -S /lab/mysql_home01/mysqld.sock 
 ```
@@ -129,7 +129,7 @@ select * from backup_progress;
 ### Show Backup size
 ```
 du -sh /lab/backup/full/ /lab/backup/inc/
-``` 
+```
 
 ### Restore
 ```

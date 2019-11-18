@@ -11,3 +11,6 @@
 | [Lab4](lab4) | MySQL Enterprise Backup
 | [Lab5](lab5) | MySQL Enterprise Firewall
 | [Lab6](lab6) | MySQL Enterprise Encryption
+| [Lab7](lab7) | MySQL Enterprise Monitor
+| [Lab8](lab8) | MySQL Replication
+| [Lab9](lab9) | MySQL INNODB Cluster

@@ -98,7 +98,7 @@ show plugins;
 
 SET GLOBAL rpl_semi_sync_master_enabled = 1; SET GLOBAL rpl_semi_sync_master_timeout = 10000;
 
-``` 
+```
 ## On the Slave
 mysql>
 ```
@@ -127,7 +127,7 @@ SHOW VARIABLES LIKE 'rpl_semi_sync%'; SHOW STATUS LIKE 'Rpl_semi_sync%';
 
 ```
 ### Enable Network connection 
-mysql
+mysql>
 ```
 
 insert into replication.test_replication (data) values ("Semi Sync restore....");

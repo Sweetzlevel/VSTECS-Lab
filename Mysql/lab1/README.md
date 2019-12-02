@@ -86,6 +86,7 @@ cat << EOF > /lab/mysql_home01/my.cnf
 sql_mode=''
 innodb_buffer_pool_size=60M
 default_authentication_plugin=mysql_native_password
+EOF
 ```
 # server configuration
 ```

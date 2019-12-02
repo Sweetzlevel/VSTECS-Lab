@@ -86,10 +86,8 @@ cat << EOF > /lab/mysql_home01/my.cnf
 sql_mode=''
 innodb_buffer_pool_size=60M
 default_authentication_plugin=mysql_native_password
-EOF
-```
+
 # server configuration
-```
 datadir=/lab/mysql_home01/
 basedir=/lab/mysql/bin/
 plugin_dir=/lab/mysql/lib/plugin/
@@ -99,6 +97,7 @@ log-error=/lab/mysql_home01/mysqld.log
 pid-file=/lab/mysql_home01/mysqld.pid
 port=3310
 socket=/lab/mysql_home01/mysqld.sock
+EOF
 
 ```
 
